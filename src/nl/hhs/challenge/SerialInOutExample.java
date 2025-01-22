@@ -27,21 +27,16 @@ public class SerialInOutExample extends JFrame {
     public static void main(String[] args) {
 
         new GUI1();
+        while(logSucc) {
+            start();
+        }
+    }
 
-        while (!logSucc) {
-            try {
-                Thread.sleep(100); // Wacht tot logSucc true is
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+    public static void start () {
         test();
 //        JFrame frame = new SerialInOutExample("SerialInOutExample");
         SerialInOutExample frame = new SerialInOutExample("SerialInOutExample");
         frame.setVisible(true);
-
-    }
-
     }
 
     private static int waterPercentage = 0; // Houdt het huidige waterpercentage bij.
