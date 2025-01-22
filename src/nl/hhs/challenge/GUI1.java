@@ -59,6 +59,8 @@ public class GUI1 {
 
             if (validateLogin(username, password)) {
                 JOptionPane.showMessageDialog(frame1, "Inloggen succesvol!");
+
+                SerialInOutExample.logSucc = true; // Zet de boolean op true
                 SerialInOutExample.serialInstance.gui.setVisible(true); // GUI tonen.
                 frame1.dispose(); // Login GUI sluiten.
             } else {

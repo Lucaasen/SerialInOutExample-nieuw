@@ -15,17 +15,33 @@ import javax.swing.*; // voor de GUI
 
 public class SerialInOutExample extends JFrame {
     public static SerialInOutExample serialInstance;
+    public static boolean logSucc = false; // Maak logSucc publiek en statisch
     private JPanel mainPanel;
     private JTextField inkomend;
     private JTextField uitgaand;
     private JButton verstuurButton;
     private String teVerzenden;
     public static GUI gui; // GUI-referentie om updates door te geven.
+
+
     public static void main(String[] args) {
+
+        new GUI1();
+
+        while (!logSucc) {
+            try {
+                Thread.sleep(100); // Wacht tot logSucc true is
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         test();
-//        new GUI1();
-        JFrame frame = new SerialInOutExample("SerialInOutExample");
+//        JFrame frame = new SerialInOutExample("SerialInOutExample");
+        SerialInOutExample frame = new SerialInOutExample("SerialInOutExample");
         frame.setVisible(true);
+
+    }
+
     }
 
     private static int waterPercentage = 0; // Houdt het huidige waterpercentage bij.
